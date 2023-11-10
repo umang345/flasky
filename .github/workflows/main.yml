@@ -1,7 +1,12 @@
-name: Main Action
+name: Set up and Display Python's version 
 on: [push]
 jobs:
-  my-first-action:
-   runs-on: ubuntu-latest
-   steps:
-     - run: echo "Github actions works"
+  check-pythons-version:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.7
+      - run: python --version
